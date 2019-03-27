@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="./images/ufpb.png" width="100" alt="logo da UFPB">
+    <img src="https://github.com/Vnicius/ed-heapsort/raw/master/images/ufpb.png" width="100" alt="logo da UFPB">
 </p>
 
 # Universidade Federal da Paraíba
