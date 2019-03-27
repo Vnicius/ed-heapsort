@@ -1,3 +1,5 @@
+import sys
+
 
 class Heapsort:
     """
@@ -86,7 +88,7 @@ class Heapsort:
 
 
 if __name__ == '__main__':
-    ipt = input()
+    ipt = input('Vector: ')
     while ipt != '':
         # divide os valores por ','
         input_vector = ipt.replace(' ', '').split(',')
@@ -98,9 +100,12 @@ if __name__ == '__main__':
             try:
                 values.append(int(x))
             except ValueError:
-                values.append(float(x))
+                try:
+                    values.append(float(x))
+                except:
+                    sys.exit()
 
         # ordena os valores
         hs.sort(values)
         print(','.join([str(v) for v in values]))
-        ipt = input()
+        ipt = input('Vector: ')
