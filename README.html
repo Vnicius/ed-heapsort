@@ -18,11 +18,11 @@
 <h3 id="joão-pessoa-28-de-março-de-2019">João Pessoa, 28 de Março de 2019</h3>
 <hr>
 <h5 id="aluno-vinícius-matheus-veríssimo-da-silva----20191000933">Aluno: Vinícius Matheus Veríssimo da Silva – 20191000933</h5>
-<h3 align="center"><strong>Heapsort</strong></h3>
+<h2 align="center"><strong>Heapsort</strong></h2>
 <h1 id="introdução">1 - Introdução</h1>
 <p>Desenvolvido em 1964 por Robert W. Floyd e J.W.J Williams, o Heapsort é uma técnica de ordenação por comparação baseado na estrutura de dados <em>Binary Heap</em> (ou Heap Binária, em tradução livre). É similar ao Selectionsort, onde o primeiramente busca-se o maior elemento de um vetor e o coloca-se no final dele, esse processo é repetido para todos os outros elementos restantes [1].</p>
 <p>A <em>Binary Heap</em> é essencialmente uma Árvore Binária onde os itens são armazenados numa ordem especial de modo que o nó pai é maior (ou menor) que os seus dois filhos [1]. Quando o nó pai possui um valor maior que os filhos, diz-se que a <em>Binary Heap</em> está no formato de <em>max heap</em> (heap máxima), caso o nó pai possua um valor menor que os filhos, então diz-se que está no formato de <em>min heap</em> (heap mínima).</p>
-<p>Apesar de se basear na representação de uma Árvore Binária, é possível realizar a <em>Binary Heap</em>  sobre uma estrutura de lista. Nesse caso, seja uma lista de tamanho <code>n</code> e um elemento dessa lista de índice <code>i</code>, tal que <code>i &lt; n/2</code>, este será um nó pai de modo que os seus dois filhos serão os elementos de índices <code>2 * i + 1</code> e <code>2 * i + 2</code>.</p>
+<p>Apesar de se basear na representação de uma Árvore Binária, é possível realizar a  <em>Binary Heap</em>  sobre uma estrutura de lista. Nesse caso, seja uma lista de tamanho <code>n</code> e um elemento dessa lista de índice <code>i</code>, tal que <code>i &lt; n/2</code>, este será um nó pai de modo que os seus dois filhos serão os elementos de índices <code>2 * i + 1</code> e <code>2 * i + 2</code>.</p>
 <p align="center">
 <img src="https://github.com/Vnicius/ed-heapsort/raw/master/images/fig1.png" alt="logo da UFPB">
 </p>
@@ -45,7 +45,7 @@ Figura 1: a) árvore em heap máximo; b) vetor que originou a árvore. Fonte: CO
 <h2 id="funções">2.2 - Funções</h2>
 <p>O Heapsort possui 3 funções principais: <strong>MAX-HEAPIFY (MH)</strong>, <strong>BUILD-MAX-HEAP (BMH)</strong> e <strong>HEAPSORT (HS)</strong>. Estas que serão mais exploradas a seguir.</p>
 <h3 id="max-heapify">2.2.1 - MAX-HEAPIFY</h3>
-<p>A função <strong>MAX-HEAPIFY</strong> é responsável por manter o estado de <em>max heap</em>, ou seja, verifica se o pai de índice <code>i</code> é maior que os seus filhos de índices <code>LEFT(i)</code> (índice do filho esquerda) e <code>RIGHT(i)</code> (índice do filho da direita), caso negativo, troca-se o nó pai com o filho que possui o maior valor, ocorrendo a troca, o processo é aplicado novamente na nova posição do nó pai para garantir que a árvore atingirá o estado de heap máximo. O procedimento é repetido até que não haja mais nenhuma troca, ou seja, a árvore estará em estado de <em>max heap</em>. Vale ressaltar que o <strong>MH</strong> considera que as sub-árvores de raízes <code>LEFT(i)</code> e <code>RIGHT(i)</code>  já estão em estado de heap máximo</p>
+<p>A função <strong>MAX-HEAPIFY</strong> é responsável por manter o estado de <em>max heap</em>, ou seja, verifica se o pai de índice <code>i</code> é maior que os seus filhos de índices <code>LEFT(i)</code> (índice do filho esquerdo) e <code>RIGHT(i)</code> (índice do filho direito), caso negativo, troca-se o nó pai com o filho que possui o maior valor, ocorrendo a troca, o processo é aplicado novamente na nova posição do nó pai para garantir que a árvore atingirá o estado de heap máximo. O procedimento é repetido até que não haja mais nenhuma troca, ou seja, a árvore estará em estado de <em>max heap</em>. Vale ressaltar que o <strong>MH</strong> considera que as sub-árvores de raízes <code>LEFT(i)</code> e <code>RIGHT(i)</code>  já estão em estado de heap máximo</p>
 <p align="center">
 <img src="https://github.com/Vnicius/ed-heapsort/raw/master/images/fig2.png" alt="logo da UFPB">
 </p>
@@ -64,8 +64,7 @@ Figura 2: Antes e depois da aplicação do MAX-HEAPIFY em uma árvore. Fone: San
 		largest &lt;- right
 
 	se largest != i então
-
-		trocar(A[i], A[largest])
+		swap(A[i], A[largest])
 		MAX-HEAPIFY(A, largest, last_position)
 </code></pre>
 <h4 id="complexidade">Complexidade</h4>
@@ -89,7 +88,7 @@ Figura 3: Antes e depois da aplicação do BUILD-MAX-HEAP em um vetor. Fonte: Ha
 <p>Sendo uma heap essencialmente uma árvore binária, algumas propriedades desse tipo de estrutura podem ser atribuídas a ela, como:</p>
 <ul>
 <li>a altura de uma árvore binária ser no máximo <code>lg n</code>, onde <code>n</code> é a quantidade total de nós da árvore;</li>
-<li>outra propriedade diz respeito à quantidade máxima de nós em cada nível da árvore, que pode ser calculada pela equação <img src="http://latex.codecogs.com/gif.latex?%5Cfrac%7Bn%7D%7B2%5E%7Bh%20+%201%7D%7D" alt="">, onde <code>n</code> é quantidade total de nós e <code>h</code> altura na qual está sendo buscada a quantidade máxima de nós.</li>
+<li>outra propriedade diz respeito à quantidade máxima de nós em cada nível da árvore, que pode ser calculada pela equação <img src="http://latex.codecogs.com/gif.latex?%5Cfrac%7Bn%7D%7B2%5E%7Bh%20+%201%7D%7D" alt="">, onde <code>n</code> é quantidade total de nós e <code>h</code> a altura na qual está sendo buscada a quantidade máxima de nós.</li>
 </ul>
 <p>Considerando que o <strong>BMH</strong> é executado em todos nós de cada altura, sua complexidade se modifica com a altura <code>h</code> do nó, sendo ela no mínimo 0 e no máximo <code>lg n</code>. Logo a complexidade da <strong>BMH</strong> é dada pelo somatório das complexidades em cada altura da árvore, sendo assim:</p>
 <p><img src="https://github.com/Vnicius/ed-heapsort/raw/master/images/eq1.png" alt="equacao1"></p>
@@ -97,10 +96,10 @@ Figura 3: Antes e depois da aplicação do BUILD-MAX-HEAP em um vetor. Fonte: Ha
 <p><img src="https://github.com/Vnicius/ed-heapsort/raw/master/images/eq2.png" alt="equacao2"></p>
 <p>Fazendo com que a altura máxima seja infinita, temos:</p>
 <p><img src="https://github.com/Vnicius/ed-heapsort/raw/master/images/eq3.png" alt="equacao3"></p>
-<p>A série infinita é uma série harmônica que tem como resultado o valor <code>2</code>, logo:</p>
+<p>Essa série infinita é uma série harmônica que tem como resultado o valor <code>2</code>, logo:</p>
 <p><img src="https://github.com/Vnicius/ed-heapsort/raw/master/images/eq4.png" alt="equacao4"></p>
 <p>Assim, podemos concluir que a complexidade correta para o <strong>BMH</strong> é <em>O(n)</em>.</p>
-<h3 id="heapsort">HEAPSORT</h3>
+<h3 id="heapsort">2.2.3 - HEAPSORT</h3>
 <p>A função <strong>HEAPSORT</strong> é responsável por aplicar os processos descritos no início da seção <strong>2</strong>. Primeiro é executado o processo de <strong>BUILD-MAX-HEAP</strong> no vetor de entrada, para que ele fique em estado de <em>max heap</em>. Depois troca-se o elemento da primeiro posição com o elemento da última posição válida, logo após isso, é aplicado novamente o processo de <strong>MAX-HEAPIFY</strong>, mas apenas na primeira posição do vetor, para garantir que ele estará novamente em estado de <em>max heap</em>. Nesse momento desconsidera-se a última posição válida, pois contém o último valor retirado. Repete-se os procedimentos de troca e execução do <strong>MH</strong> até que última posição válida seja a segunda posição do vetor.</p>
 <p align="center">
 <img src="https://github.com/Vnicius/ed-heapsort/raw/master/images/fig4.png" alt="logo da UFPB">
@@ -111,7 +110,7 @@ Figura 4: Exemplo da execução do Heapsort. Fonte: Le [6]
 <pre><code>HEAPSORT (V)
 	BUILD-MAX-HEAP (V)
 	para i &lt;- tamanho(V) até 1 faça
-		trocar(V[0], V[i])
+		swap(V[0], V[i])
 		MAX-HEAPIFY(V, 0, i - 1)
 	fimpara
 </code></pre>
