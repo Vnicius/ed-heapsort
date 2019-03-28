@@ -14,7 +14,7 @@
 
 ##### Aluno: Vinícius Matheus Veríssimo da Silva -- 20191000933
 
-<p align="center" style="font-size: 30pt;">Heapsort</p>
+<h2 align="center" >Heapsort</h2>
 
 # 1 - Introdução
 
